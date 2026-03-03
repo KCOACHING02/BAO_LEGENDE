@@ -16,7 +16,6 @@
   --gold-light: #E8CC80;
   --beige: #EDE8DF;
   --text: #1A1A1A;
-  --gray: #888;
 }
 
 body {
@@ -26,6 +25,36 @@ body {
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* ── BACK BAR ── */
+.back-bar {
+  background: var(--black);
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+}
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(250,250,245,0.6);
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(201,168,76,0.25);
+  background: rgba(201,168,76,0.08);
+  transition: all 0.2s ease;
+}
+.back-btn:hover {
+  background: rgba(201,168,76,0.18);
+  border-color: rgba(201,168,76,0.5);
+  color: var(--gold-light);
+  transform: translateX(-2px);
+}
+.back-btn svg { width: 14px; height: 14px; stroke: currentColor; flex-shrink: 0; }
 
 /* ===== COVER ===== */
 .cover {
@@ -38,16 +67,14 @@ body {
   position: relative;
   overflow: hidden;
 }
-
 .cover::before {
   content: '';
   position: absolute;
   top: -100px; right: -100px;
-  width: 420px; height: 420px;
-  background: radial-gradient(circle, rgba(201,168,76,0.22) 0%, transparent 70%);
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(201,168,76,0.25) 0%, transparent 70%);
   pointer-events: none;
 }
-
 .cover::after {
   content: '';
   position: absolute;
@@ -56,697 +83,189 @@ body {
   background: radial-gradient(circle, rgba(242,196,176,0.12) 0%, transparent 70%);
   pointer-events: none;
 }
-
-.cover-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  z-index: 1;
-}
-
-.cover-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 13px;
-  font-style: italic;
-  color: var(--gold);
-  letter-spacing: 1px;
-}
-
-.cover-tag {
-  background: var(--gold);
-  color: var(--black);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 6px 14px;
-  border-radius: 2px;
-}
-
-.cover-middle {
-  z-index: 1;
-  padding: 60px 0 40px;
-}
-
-.cover-eyebrow {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 20px;
-}
-
-.cover-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(50px, 10vw, 78px);
-  font-weight: 900;
-  line-height: 0.95;
-  color: var(--white);
-}
-
+.cover-top { display: flex; justify-content: space-between; align-items: flex-start; z-index: 1; }
+.cover-brand { font-family: 'Playfair Display', serif; font-size: 13px; font-style: italic; color: var(--gold); letter-spacing: 1px; }
+.cover-tag { background: var(--gold); color: var(--black); font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 6px 14px; border-radius: 2px; }
+.cover-middle { z-index: 1; padding: 60px 0 40px; }
+.cover-eyebrow { font-size: 11px; font-weight: 500; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
+.cover-title { font-family: 'Playfair Display', serif; font-size: clamp(44px, 10vw, 80px); font-weight: 900; line-height: 0.95; color: var(--white); margin-bottom: 8px; }
 .cover-title span { color: var(--gold); font-style: italic; }
 .cover-title .outline { -webkit-text-stroke: 2px var(--gold); color: transparent; }
-
-.cover-subtitle {
-  margin-top: 28px;
-  font-size: 16px;
-  font-weight: 300;
-  color: rgba(250,250,245,0.6);
-  line-height: 1.6;
-  max-width: 440px;
-  border-left: 2px solid var(--gold);
-  padding-left: 16px;
-}
-
-.cover-pills {
-  display: flex;
-  gap: 10px;
-  margin-top: 40px;
-  flex-wrap: wrap;
-}
-
-.pill {
-  border: 1px solid rgba(201,168,76,0.4);
-  color: rgba(250,250,245,0.7);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 8px 16px;
-  border-radius: 50px;
-}
-
-.cover-bottom {
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-top: 1px solid rgba(255,255,255,0.1);
-  padding-top: 24px;
-}
-
+.cover-subtitle { margin-top: 28px; font-size: 16px; font-weight: 300; color: rgba(250,250,245,0.6); line-height: 1.6; max-width: 440px; border-left: 2px solid var(--gold); padding-left: 16px; }
+.cover-pills { display: flex; gap: 10px; margin-top: 40px; flex-wrap: wrap; }
+.pill { border: 1px solid rgba(201,168,76,0.4); color: rgba(250,250,245,0.7); font-size: 11px; font-weight: 500; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 16px; border-radius: 50px; }
+.cover-bottom { z-index: 1; display: flex; justify-content: space-between; align-items: flex-end; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; gap: 20px; }
 .cover-toc { display: flex; flex-direction: column; gap: 6px; }
-
-.cover-toc-item {
-  font-size: 12px;
-  color: rgba(250,250,245,0.4);
-  display: flex;
-  gap: 12px;
-}
-
-.cover-toc-item .num {
-  color: var(--gold);
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-}
-
-.cover-version {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: rgba(250,250,245,0.25);
-  text-align: right;
-}
+.cover-toc-item { font-size: 12px; color: rgba(250,250,245,0.4); display: flex; gap: 12px; }
+.cover-toc-item .num { color: var(--gold); font-family: 'DM Mono', monospace; font-size: 11px; }
+.cover-version { font-family: 'DM Mono', monospace; font-size: 10px; color: rgba(250,250,245,0.25); text-align: right; flex-shrink: 0; }
 
 /* ===== INTRO ===== */
-.intro-page {
-  background: var(--beige);
-  padding: 80px 40px;
-  position: relative;
-  overflow: hidden;
-}
-
-.intro-page::before {
-  content: '✍';
-  position: absolute;
-  top: -10px; right: 20px;
-  font-size: 220px;
-  color: rgba(0,0,0,0.03);
-  line-height: 1;
-  pointer-events: none;
-}
-
-.intro-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 32px;
-}
-
-.intro-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(28px, 5vw, 42px);
-  font-weight: 700;
-  line-height: 1.2;
-  color: var(--black);
-  margin-bottom: 28px;
-  position: relative;
-  z-index: 1;
-}
-
+.intro-page { background: var(--beige); padding: 80px 40px; position: relative; overflow: hidden; }
+.intro-page::before { content: '"'; position: absolute; top: -20px; left: 20px; font-family: 'Playfair Display', serif; font-size: 300px; color: rgba(0,0,0,0.04); line-height: 1; pointer-events: none; }
+.intro-label { font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 32px; }
+.intro-heading { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 42px); font-weight: 700; line-height: 1.2; color: var(--black); margin-bottom: 28px; position: relative; z-index: 1; }
 .intro-heading em { font-style: italic; color: var(--gold); }
-
-.intro-body {
-  font-size: 15px;
-  line-height: 1.9;
-  color: #3D3028;
-  max-width: 560px;
-  position: relative;
-  z-index: 1;
-}
-
+.intro-body { font-size: 15px; line-height: 1.9; color: #3D3028; max-width: 560px; position: relative; z-index: 1; }
 .intro-body p + p { margin-top: 20px; }
 .intro-body strong { font-weight: 600; color: var(--black); }
 
 /* ===== FICHE HEADER ===== */
-.fiche-header {
-  padding: 0 40px;
-  background: var(--black);
-  position: relative;
-  overflow: hidden;
-}
-
-.fiche-header-inner {
-  padding: 60px 0 50px;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  position: relative;
-  z-index: 1;
-}
-
-.fiche-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: var(--gold);
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.fiche-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 7vw, 56px);
-  font-weight: 900;
-  line-height: 1;
-  color: var(--white);
-}
-
+.fiche-header { padding: 0 40px; background: var(--black); position: relative; overflow: hidden; }
+.fiche-header-inner { padding: 60px 0 50px; border-bottom: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 1; }
+.fiche-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 3px; color: var(--gold); text-transform: uppercase; margin-bottom: 20px; }
+.fiche-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 7vw, 58px); font-weight: 900; line-height: 1; color: var(--white); }
 .fiche-title em { font-style: italic; color: var(--gold); }
 .fiche-title .outline-w { -webkit-text-stroke: 2px rgba(250,250,245,0.3); color: transparent; }
+.fiche-citation { margin-top: 28px; font-family: 'Playfair Display', serif; font-style: italic; font-size: 16px; color: rgba(250,250,245,0.5); border-left: 2px solid var(--gold); padding-left: 16px; max-width: 480px; line-height: 1.7; }
+.fiche-bg-num { position: absolute; right: -10px; bottom: -30px; font-family: 'Playfair Display', serif; font-size: 200px; font-weight: 900; color: rgba(255,255,255,0.03); line-height: 1; z-index: 0; }
 
-.fiche-citation {
-  margin-top: 28px;
-  font-family: 'Playfair Display', serif;
-  font-style: italic;
-  font-size: 16px;
-  color: rgba(250,250,245,0.5);
-  border-left: 2px solid var(--gold);
-  padding-left: 16px;
-  max-width: 480px;
-  line-height: 1.7;
-}
-
-.fiche-bg-num {
-  position: absolute;
-  right: -10px; bottom: -30px;
-  font-family: 'Playfair Display', serif;
-  font-size: 200px;
-  font-weight: 900;
-  color: rgba(255,255,255,0.03);
-  line-height: 1;
-  z-index: 0;
-}
-
-/* ===== CONTENT ===== */
-.fiche-content {
-  background: var(--cream);
-  padding: 56px 40px;
-}
-
-.section-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--black);
-  margin: 48px 0 20px;
-  position: relative;
-  padding-bottom: 12px;
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0;
-  width: 40px; height: 2px;
-  background: var(--gold);
-}
-
+/* ===== FICHE CONTENT ===== */
+.fiche-content { background: var(--cream); padding: 56px 40px; }
+.section-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; color: var(--black); margin: 48px 0 20px; position: relative; padding-bottom: 12px; }
+.section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 40px; height: 2px; background: var(--gold); }
 .section-title:first-child { margin-top: 0; }
-
 .body-text { font-size: 15px; line-height: 1.9; color: #3D3028; }
 .body-text + .body-text { margin-top: 16px; }
 .body-text strong { font-weight: 600; color: var(--black); }
 
-.callout {
-  background: var(--black);
-  color: var(--white);
-  padding: 28px 32px;
-  margin: 32px 0;
-  border-radius: 4px;
-  font-family: 'Playfair Display', serif;
-  font-size: 19px;
-  font-style: italic;
-  line-height: 1.6;
-  position: relative;
-}
+/* Callouts */
+.callout { background: var(--black); color: var(--white); padding: 28px 32px; margin: 32px 0; border-radius: 4px; font-family: 'Playfair Display', serif; font-size: 19px; font-style: italic; line-height: 1.6; position: relative; }
+.callout::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: var(--gold); border-radius: 4px 0 0 4px; }
+.callout-gold { background: linear-gradient(135deg, #C9A84C, #E8CC80); color: var(--black); padding: 28px 32px; margin: 32px 0; border-radius: 4px; font-weight: 700; font-size: 15px; line-height: 1.7; }
 
-.callout::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 0; bottom: 0;
-  width: 4px;
-  background: var(--gold);
-  border-radius: 4px 0 0 4px;
-}
-
-.callout-gold {
-  background: linear-gradient(135deg, #C9A84C, #E8CC80);
-  color: var(--black);
-  padding: 28px 32px;
-  margin: 32px 0;
-  border-radius: 4px;
-  font-weight: 700;
-  font-size: 15px;
-  line-height: 1.7;
-}
-
+/* Arrow list */
 .arrow-list { list-style: none; margin: 16px 0; }
-
-.arrow-list li {
-  font-size: 14px;
-  line-height: 1.7;
-  color: #3D3028;
-  padding: 7px 0 7px 24px;
-  position: relative;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
+.arrow-list li { font-size: 14px; line-height: 1.7; color: #3D3028; padding: 7px 0 7px 24px; position: relative; border-bottom: 1px solid rgba(0,0,0,0.05); }
 .arrow-list li:last-child { border-bottom: none; }
+.arrow-list li::before { content: '→'; position: absolute; left: 0; color: var(--gold); font-weight: 700; }
 
-.arrow-list li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-weight: 700;
-}
-
-.step-block {
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 8px;
-  padding: 24px 24px 24px 20px;
-  margin: 14px 0;
-  background: white;
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-}
-
-.step-num {
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--gold);
-  background: rgba(201,168,76,0.1);
-  padding: 6px 10px;
-  border-radius: 4px;
-  flex-shrink: 0;
-  letter-spacing: 1px;
-}
-
+/* Step blocks */
+.step-block { border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; padding: 24px 24px 24px 20px; margin: 14px 0; background: white; display: flex; gap: 20px; align-items: flex-start; }
+.step-num { font-family: 'DM Mono', monospace; font-size: 11px; font-weight: 500; color: var(--gold); background: rgba(201,168,76,0.1); padding: 6px 10px; border-radius: 4px; flex-shrink: 0; letter-spacing: 1px; }
 .step-content { flex: 1; }
-
-.step-title-s {
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--black);
-  margin-bottom: 6px;
-}
-
+.step-title-s { font-size: 15px; font-weight: 700; color: var(--black); margin-bottom: 6px; }
 .step-body { font-size: 14px; line-height: 1.7; color: #555; }
 .step-body em { font-style: italic; color: #888; }
-.step-body strong { color: var(--black); font-weight: 600; }
 
-.levier {
-  background: white;
-  border-left: 4px solid var(--gold);
-  border-radius: 0 8px 8px 0;
-  padding: 22px 22px 22px 18px;
-  margin: 14px 0;
-}
-
-.levier-title {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 8px;
-}
-
+/* Leviers */
+.levier { background: white; border-left: 4px solid var(--gold); border-radius: 0 8px 8px 0; padding: 22px 22px 22px 18px; margin: 14px 0; }
+.levier-title { font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
 .levier-text { font-size: 14px; line-height: 1.7; color: #3D3028; }
-.levier-text strong { font-weight: 600; color: var(--black); }
-.levier-text em { font-style: italic; color: #888; }
 
-/* Anatomy block */
-.anatomy-block {
-  background: white;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 24px 0;
-}
+/* Anatomy blocks */
+.anatomy-box { background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; margin: 24px 0; }
+.anatomy-header { background: var(--black); padding: 14px 20px; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+.anatomy-line { display: flex; align-items: stretch; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.anatomy-line:last-child { border-bottom: none; }
+.anatomy-num { width: 44px; background: rgba(201,168,76,0.08); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--gold); font-weight: 700; flex-shrink: 0; border-right: 1px solid rgba(0,0,0,0.06); }
+.anatomy-content { padding: 16px; flex: 1; }
+.anatomy-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px; }
+.anatomy-desc { font-size: 13px; color: #555; line-height: 1.5; }
+.anatomy-example { font-size: 12px; color: #888; font-style: italic; margin-top: 6px; }
 
-.anatomy-header {
-  background: var(--black);
-  padding: 14px 20px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
+/* Formule blocks */
+.formule-card { background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; margin: 20px 0; }
+.formule-header { padding: 18px 24px; border-bottom: 2px solid var(--gold); display: flex; justify-content: space-between; align-items: center; background: linear-gradient(135deg, #1a1a1a, #2a2a2a); }
+.formule-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--white); }
+.formule-tag { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); background: rgba(201,168,76,0.15); padding: 5px 10px; border-radius: 20px; border: 1px solid rgba(201,168,76,0.3); }
+.formule-body { padding: 20px 24px; display: flex; flex-direction: column; gap: 12px; }
+.formule-step { display: flex; gap: 14px; align-items: flex-start; }
+.formule-letter { width: 32px; height: 32px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 900; color: var(--black); flex-shrink: 0; }
+.formule-step-content { flex: 1; padding-top: 4px; }
+.formule-step-title { font-size: 13px; font-weight: 700; color: var(--black); margin-bottom: 3px; }
+.formule-step-desc { font-size: 13px; color: #555; line-height: 1.6; }
+.formule-usage { margin-top: 4px; padding: 12px 16px; background: rgba(201,168,76,0.07); border-radius: 6px; font-size: 12px; color: #7a6a55; font-style: italic; line-height: 1.5; border-left: 3px solid var(--gold); }
 
-.anatomy-row {
-  display: flex;
-  align-items: stretch;
-  border-bottom: 1px solid rgba(0,0,0,0.06);
-}
+/* Length table */
+.length-table { background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; margin: 20px 0; }
+.length-row { display: flex; align-items: center; gap: 16px; padding: 14px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); }
+.length-row:last-child { border-bottom: none; }
+.length-type { font-size: 13px; font-weight: 600; color: var(--black); flex: 1; }
+.length-range { font-family: 'DM Mono', monospace; font-size: 12px; color: var(--gold); font-weight: 700; background: rgba(201,168,76,0.1); padding: 4px 10px; border-radius: 4px; white-space: nowrap; }
+.length-desc { font-size: 12px; color: #888; flex: 2; }
 
-.anatomy-row:last-child { border-bottom: none; }
+/* CTA formulas */
+.cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 20px 0; }
+.cta-card { background: white; border-radius: 8px; padding: 16px 18px; border-top: 3px solid var(--gold); }
+.cta-icon { font-size: 20px; margin-bottom: 8px; }
+.cta-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+.cta-text { font-size: 13px; color: #555; line-height: 1.5; font-style: italic; }
 
-.anatomy-num {
-  width: 44px;
-  background: rgba(201,168,76,0.06);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'DM Mono', monospace;
-  font-size: 11px;
-  color: var(--gold);
-  font-weight: 700;
-  flex-shrink: 0;
-  border-right: 1px solid rgba(0,0,0,0.06);
-}
-
-.anatomy-content { padding: 16px 18px; flex: 1; }
-
-.anatomy-label {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--gold);
-  margin-bottom: 4px;
-}
-
-.anatomy-desc { font-size: 13px; color: #444; line-height: 1.6; }
-.anatomy-ex { font-size: 12px; color: #999; font-style: italic; margin-top: 5px; line-height: 1.5; }
-
-/* Before / After */
-.before-after {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-  margin: 24px 0;
-}
-
-.before-card {
-  background: #fef2f2;
-  border-top: 3px solid #ef4444;
-  border-radius: 8px;
-  padding: 20px;
-}
-
-.after-card {
-  background: #f0fdf4;
-  border-top: 3px solid #22c55e;
-  border-radius: 8px;
-  padding: 20px;
-}
-
-.ba-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  margin-bottom: 10px;
-}
-
+/* Before/After */
+.before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+.before-card { background: #fef2f2; border-top: 3px solid #ef4444; border-radius: 8px; padding: 20px; }
+.after-card  { background: #f0fdf4; border-top: 3px solid #22c55e; border-radius: 8px; padding: 20px; }
+.ba-label { font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; }
 .before-card .ba-label { color: #ef4444; }
-.after-card .ba-label { color: #22c55e; }
-.ba-text { font-size: 13px; line-height: 1.7; color: #444; }
-
-/* Formula card */
-.formula-card {
-  background: var(--black);
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 24px 0;
-}
-
-.formula-header {
-  padding: 18px 28px;
-  background: linear-gradient(135deg, #1a1a1a, #2a2a2a);
-  border-bottom: 2px solid var(--gold);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.formula-tag {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
-  color: var(--gold);
-  letter-spacing: 2px;
-}
-
-.formula-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--white);
-  margin-top: 4px;
-}
-
-.formula-body { padding: 24px 28px; }
-
-.formula-step {
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-}
-
-.formula-step:last-child { border-bottom: none; }
-
-.formula-step-letter {
-  width: 30px; height: 30px;
-  background: var(--gold);
-  color: var(--black);
-  font-family: 'Playfair Display', serif;
-  font-size: 14px;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  flex-shrink: 0;
-}
-
-.formula-step-content { flex: 1; }
-
-.formula-step-title {
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--white);
-  margin-bottom: 4px;
-}
-
-.formula-step-desc {
-  font-size: 12px;
-  color: rgba(250,250,245,0.55);
-  line-height: 1.6;
-}
-
-.formula-insight {
-  background: rgba(201,168,76,0.12);
-  border: 1px solid rgba(201,168,76,0.3);
-  border-radius: 4px;
-  padding: 14px 16px;
-  margin-top: 16px;
-  font-size: 13px;
-  color: rgba(250,250,245,0.8);
-  font-style: italic;
-  line-height: 1.6;
-}
+.after-card  .ba-label { color: #22c55e; }
+.ba-text { font-size: 13px; line-height: 1.6; color: #444; font-style: italic; }
 
 /* Checklist */
-.checklist {
-  background: white;
-  border: 1px solid rgba(0,0,0,0.08);
-  border-radius: 8px;
-  overflow: hidden;
-  margin: 24px 0;
-}
-
-.checklist-header {
-  background: var(--black);
-  padding: 14px 20px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-
-.check-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 14px;
-  padding: 14px 20px;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-}
-
+.checklist { background: white; border: 1px solid rgba(0,0,0,0.08); border-radius: 8px; overflow: hidden; margin: 24px 0; }
+.checklist-header { background: var(--black); padding: 14px 20px; font-size: 10px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); }
+.check-item { display: flex; align-items: flex-start; gap: 14px; padding: 14px 20px; border-bottom: 1px solid rgba(0,0,0,0.05); }
 .check-item:last-child { border-bottom: none; }
-
-.check-box {
-  width: 20px; height: 20px;
-  border: 2px solid var(--gold);
-  border-radius: 4px;
-  flex-shrink: 0;
-  margin-top: 1px;
-}
-
+.check-box { width: 20px; height: 20px; border: 2px solid var(--gold); border-radius: 4px; flex-shrink: 0; margin-top: 1px; }
 .check-text { font-size: 14px; line-height: 1.6; color: #3D3028; }
 .check-text strong { font-weight: 600; color: var(--black); }
 
-/* Big stat */
-.big-stat {
-  background: linear-gradient(135deg, var(--gold), var(--gold-light));
-  padding: 32px;
-  border-radius: 8px;
-  margin: 32px 0;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.big-stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 60px;
-  font-weight: 900;
-  color: var(--black);
-  line-height: 1;
-  flex-shrink: 0;
-}
-
-.big-stat-text { font-size: 15px; font-weight: 600; color: var(--black); line-height: 1.5; }
-
-.tip-box {
-  background: white;
-  border-radius: 8px;
-  padding: 20px 24px;
-  border-left: 4px solid var(--gold);
-  margin: 20px 0;
-}
-
-.tip-label {
-  font-size: 11px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--gold);
-  margin-bottom: 8px;
-}
-
+/* Tip box */
+.tip-box { background: white; border-radius: 8px; padding: 20px 24px; border-left: 4px solid var(--gold); margin: 20px 0; }
+.tip-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 8px; }
 .tip-text { font-size: 14px; color: #555; line-height: 1.7; font-style: italic; }
 
+/* Algo signals */
+.signal-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0; }
+.signal-card { background: white; border-radius: 8px; padding: 16px; text-align: center; border-top: 3px solid var(--gold); }
+.signal-icon { font-size: 22px; margin-bottom: 8px; }
+.signal-label { font-size: 12px; font-weight: 700; color: var(--black); margin-bottom: 4px; }
+.signal-desc { font-size: 11px; color: #888; line-height: 1.4; }
+
 /* Closing */
-.closing-page {
-  background: var(--black);
-  padding: 80px 40px;
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-}
-
-.closing-page::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 500px; height: 500px;
-  background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.closing-eyebrow {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 24px;
-  position: relative;
-  z-index: 1;
-}
-
-.closing-title {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 7vw, 56px);
-  font-weight: 900;
-  line-height: 1.1;
-  color: var(--white);
-  margin-bottom: 32px;
-  position: relative;
-  z-index: 1;
-}
-
+.closing-page { background: var(--black); padding: 80px 40px; position: relative; overflow: hidden; text-align: center; }
+.closing-page::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%); pointer-events: none; }
+.closing-eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; position: relative; z-index: 1; }
+.closing-title { font-family: 'Playfair Display', serif; font-size: clamp(32px, 7vw, 56px); font-weight: 900; line-height: 1.1; color: var(--white); margin-bottom: 32px; position: relative; z-index: 1; }
 .closing-title em { color: var(--gold); font-style: italic; }
-
-.closing-text {
-  font-size: 15px;
-  line-height: 1.8;
-  color: rgba(250,250,245,0.5);
-  max-width: 420px;
-  margin: 0 auto 48px;
-  position: relative;
-  z-index: 1;
-}
-
-.closing-brand {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-style: italic;
-  color: var(--gold);
-  position: relative;
-  z-index: 1;
-}
+.closing-text { font-size: 15px; line-height: 1.8; color: rgba(250,250,245,0.5); max-width: 420px; margin: 0 auto 48px; position: relative; z-index: 1; }
+.closing-cta-wrap { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 16px; margin-bottom: 48px; }
+.closing-cta-label { font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,250,245,0.35); }
+.closing-cta-btn { display: inline-flex; align-items: center; gap: 12px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--black); font-family: 'Space Grotesk', sans-serif; font-size: 15px; font-weight: 700; padding: 16px 32px; border-radius: 6px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s; }
+.closing-cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+.closing-cta-btn svg { width: 16px; height: 16px; stroke: var(--black); flex-shrink: 0; }
+.closing-brand { font-family: 'Playfair Display', serif; font-size: 18px; font-style: italic; color: var(--gold); position: relative; z-index: 1; }
 
 .page-break { height: 2px; background: var(--gold); }
+.divider { height: 1px; background: rgba(0,0,0,0.08); margin: 40px 0; }
 
+/* ── RESPONSIVE ── */
 @media (max-width: 600px) {
-  .cover, .fiche-header, .fiche-content, .intro-page, .closing-page { padding-left: 24px; padding-right: 24px; }
-  .formula-body { padding: 20px; }
+  .cover, .fiche-header, .fiche-content, .intro-page, .closing-page, .back-bar { padding-left: 20px; padding-right: 20px; }
+  .cover { padding-top: 36px; padding-bottom: 36px; }
+  .cover-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .cover-version { text-align: left; }
   .before-after { grid-template-columns: 1fr; }
-  .big-stat { flex-direction: column; text-align: center; }
+  .cta-grid { grid-template-columns: 1fr; }
+  .signal-grid { grid-template-columns: 1fr; }
+  .step-block { flex-direction: column; gap: 12px; }
+  .formule-step { flex-direction: row; }
+  .length-row { flex-wrap: wrap; gap: 8px; }
+  .length-desc { flex: none; width: 100%; }
+  .fiche-bg-num { font-size: 120px; }
+  .closing-cta-btn { padding: 14px 24px; font-size: 14px; }
 }
 </style>
 </head>
 <body>
+
+<!-- ── BACK BAR ── -->
+<div class="back-bar">
+  <a href="https://kcoaching02.github.io/BAP_SOUS-MENU-LES-BASES/" class="back-btn">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    Retour aux Bases
+  </a>
+</div>
 
 <!-- ===== COVER ===== -->
 <div class="cover">
@@ -754,7 +273,6 @@ body {
     <div class="cover-brand">Brille & Vibre</div>
     <div class="cover-tag">Fiche Mémo</div>
   </div>
-
   <div class="cover-middle">
     <div class="cover-eyebrow">Instagram & TikTok — Copywriting</div>
     <div class="cover-title">
@@ -762,9 +280,7 @@ body {
       qui <em>vend</em><br>
       <span class="outline">sans forcer</span>
     </div>
-    <div class="cover-subtitle">
-      Tout ce que tu dois savoir pour écrire des légendes qui créent du lien, construisent ton autorité et déclenchent des ventes — naturellement.
-    </div>
+    <div class="cover-subtitle">Tout ce que tu dois savoir pour écrire des légendes qui créent du lien, construisent ton autorité et déclenchent des ventes — naturellement.</div>
     <div class="cover-pills">
       <div class="pill">Structure</div>
       <div class="pill">Formules</div>
@@ -773,7 +289,6 @@ body {
       <div class="pill">Erreurs</div>
     </div>
   </div>
-
   <div class="cover-bottom">
     <div class="cover-toc">
       <div class="cover-toc-item"><span class="num">01</span> Pourquoi la légende change tout</div>
@@ -811,32 +326,21 @@ body {
   <div class="fiche-bg-num">01</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 01 — Fondamentaux</div>
-    <div class="fiche-title">
-      Pourquoi la légende<br>
-      <em>change tout</em>
-    </div>
-    <div class="fiche-citation">
-      « La vidéo donne envie de rester. La légende donne envie d'agir. »
-    </div>
+    <div class="fiche-title">Pourquoi la légende<br><em>change tout</em></div>
+    <div class="fiche-citation">« La vidéo donne envie de rester. La légende donne envie d'agir. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
 
-  <div class="big-stat">
-    <div class="big-stat-num">72%</div>
-    <div class="big-stat-text">des utilisateurs qui s'abonnent à un compte après une vidéo disent avoir lu la légende avant de prendre leur décision. Elle n'est pas optionnelle — elle est décisive.</div>
-  </div>
-
   <div class="section-title">Le vrai rôle de la légende</div>
-
   <div class="body-text">La légende a <strong>trois rôles distincts</strong> selon l'objectif du post. Confondre ces rôles, c'est écrire une légende qui ne sert à rien.</div>
 
-  <div class="step-block" style="margin-top: 16px;">
+  <div class="step-block" style="margin-top:16px">
     <div class="step-num">R.01</div>
     <div class="step-content">
       <div class="step-title-s">Créer la connexion émotionnelle</div>
-      <div class="step-body">Elle fait que la personne se sent comprise. Reconnue. Elle lit et se dit : <em>"c'est exactement ce que je ressens."</em> C'est le post de lien — il ne vend pas, il tisse.</div>
+      <div class="step-body">Elle fait que la personne se sent comprise. Reconnue. Elle lit et se dit : <em>"c'est exactement ce que je ressens."</em> Ce post ne vend pas — il tisse.</div>
     </div>
   </div>
 
@@ -858,32 +362,30 @@ body {
 
   <div class="callout">
     Avant d'écrire une légende, pose-toi une seule question :<br><br>
-    <em>Est-ce que ce post sert à créer du lien, à construire ma crédibilité, ou à vendre ?</em><br><br>
+    Est-ce que ce post sert à créer du lien, à construire ma crédibilité, ou à vendre ?<br><br>
     La réponse détermine tout — la structure, le ton, le CTA.
   </div>
 
   <div class="section-title">L'algorithme récompense les bonnes légendes</div>
+  <div class="body-text">Plus ta légende génère de <strong>temps de lecture, de commentaires et de sauvegardes</strong>, plus l'algorithme pousse ta vidéo.</div>
 
-  <div class="body-text">Plus ta légende génère de <strong>temps de lecture, de commentaires et de sauvegardes</strong>, plus l'algorithme pousse ta vidéo. Une légende vide = moins de reach. Une légende engageante = plus de visibilité gratuite.</div>
-
-  <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 20px 0;">
-    <div style="background: white; border-radius: 8px; padding: 16px; text-align: center; border-top: 3px solid var(--gold);">
-      <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--gold);">💬</div>
-      <div style="font-size: 12px; font-weight: 700; color: var(--black); margin: 8px 0 4px;">Commentaires</div>
-      <div style="font-size: 12px; color: #777; line-height: 1.4;">Signal fort d'engagement pour l'algo</div>
+  <div class="signal-grid">
+    <div class="signal-card">
+      <div class="signal-icon">💬</div>
+      <div class="signal-label">Commentaires</div>
+      <div class="signal-desc">Signal fort d'engagement pour l'algo</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 16px; text-align: center; border-top: 3px solid var(--gold);">
-      <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--gold);">🔖</div>
-      <div style="font-size: 12px; font-weight: 700; color: var(--black); margin: 8px 0 4px;">Sauvegardes</div>
-      <div style="font-size: 12px; color: #777; line-height: 1.4;">Le signal le plus puissant en 2025</div>
+    <div class="signal-card">
+      <div class="signal-icon">🔖</div>
+      <div class="signal-label">Sauvegardes</div>
+      <div class="signal-desc">Le signal le plus puissant en 2025</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 16px; text-align: center; border-top: 3px solid var(--gold);">
-      <div style="font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 900; color: var(--gold);">↗️</div>
-      <div style="font-size: 12px; font-weight: 700; color: var(--black); margin: 8px 0 4px;">Partages</div>
-      <div style="font-size: 12px; color: #777; line-height: 1.4;">Indique que le contenu résonne fort</div>
+    <div class="signal-card">
+      <div class="signal-icon">↗️</div>
+      <div class="signal-label">Partages</div>
+      <div class="signal-desc">Indique que le contenu résonne fort</div>
     </div>
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -893,96 +395,84 @@ body {
   <div class="fiche-bg-num">02</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 02 — Structure</div>
-    <div class="fiche-title">
-      L'anatomie d'une<br>
-      légende qui <em>convertit</em>
-    </div>
-    <div class="fiche-citation">
-      « Chaque partie de ta légende a un travail à faire. Aucune ligne n'est là pour meubler. »
-    </div>
+    <div class="fiche-title">L'anatomie d'une<br>légende qui <em>convertit</em></div>
+    <div class="fiche-citation">« Chaque partie de ta légende a un travail à faire. Aucune ligne n'est là pour meubler. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="body-text">Une légende efficace n'est pas un bloc de texte improvisé. C'est une <strong>architecture précise</strong> où chaque élément a un rôle défini.</div>
 
   <div class="section-title">Les 5 blocs de la légende parfaite</div>
 
-  <div class="anatomy-block">
+  <div class="anatomy-box">
     <div class="anatomy-header">Structure — Bloc par bloc</div>
-
-    <div class="anatomy-row">
+    <div class="anatomy-line">
       <div class="anatomy-num">B.1</div>
       <div class="anatomy-content">
         <div class="anatomy-label">La première ligne — Le crochet</div>
         <div class="anatomy-desc">C'est la seule ligne visible avant "voir plus". Elle doit <strong>arrêter le scroll et donner envie de lire la suite</strong>. Une question, une affirmation choc, une promesse ou une vérité que personne ne dit.</div>
-        <div class="anatomy-ex">✅ "Tu postes tous les jours et tu n'as toujours pas de ventes. Voilà pourquoi."</div>
+        <div class="anatomy-example">✅ "Tu postes tous les jours et tu n'as toujours pas de ventes. Voilà pourquoi."</div>
       </div>
     </div>
-
-    <div class="anatomy-row">
+    <div class="anatomy-line">
       <div class="anatomy-num">B.2</div>
       <div class="anatomy-content">
         <div class="anatomy-label">L'accroche émotionnelle</div>
-        <div class="anatomy-desc">Les 2-3 phrases qui suivent doivent créer de la <strong>reconnaissance ou de la curiosité</strong>. C'est ici qu'elle se dit "c'est de moi dont tu parles". Pas de conseil encore — du ressenti.</div>
-        <div class="anatomy-ex">✅ "Tu fais tout bien sur le papier. Tu appliques les conseils. Tu restes constante. Et pourtant, rien."</div>
+        <div class="anatomy-desc">Les 2-3 phrases qui suivent créent de la <strong>reconnaissance ou de la curiosité</strong>. Elle se dit "c'est de moi dont tu parles". Pas de conseil encore — du ressenti.</div>
+        <div class="anatomy-example">✅ "Tu fais tout bien sur le papier. Tu appliques les conseils. Et pourtant, rien."</div>
       </div>
     </div>
-
-    <div class="anatomy-row">
+    <div class="anatomy-line">
       <div class="anatomy-num">B.3</div>
       <div class="anatomy-content">
         <div class="anatomy-label">Le corps — La valeur</div>
         <div class="anatomy-desc">C'est là que tu développes : l'explication, le conseil, l'histoire, la révélation. <strong>Phrases courtes. Idée par idée. Aération.</strong> On ne lit pas des pavés sur mobile — on scanne.</div>
-        <div class="anatomy-ex">Paragraphes courts (2-3 phrases max), séparés par des sauts de ligne. Pas de blocs denses.</div>
+        <div class="anatomy-example">Paragraphes courts (2-3 phrases max), séparés par des sauts de ligne.</div>
       </div>
     </div>
-
-    <div class="anatomy-row">
+    <div class="anatomy-line">
       <div class="anatomy-num">B.4</div>
       <div class="anatomy-content">
         <div class="anatomy-label">La phrase de clôture — L'émotion finale</div>
-        <div class="anatomy-desc">Une phrase forte qui <strong>résume l'essence du post</strong> ou crée une émotion de clôture. Elle doit rester en tête. C'est souvent ce qu'on sauvegarde ou partage.</div>
-        <div class="anatomy-ex">✅ "Ce n'est pas un problème de contenu. C'est un problème de message."</div>
+        <div class="anatomy-desc">Une phrase forte qui <strong>résume l'essence du post</strong> ou crée une émotion de clôture. C'est souvent ce qu'on sauvegarde ou partage.</div>
+        <div class="anatomy-example">✅ "Ce n'est pas un problème de contenu. C'est un problème de message."</div>
       </div>
     </div>
-
-    <div class="anatomy-row">
+    <div class="anatomy-line">
       <div class="anatomy-num">B.5</div>
       <div class="anatomy-content">
         <div class="anatomy-label">Le CTA — L'appel à l'action</div>
-        <div class="anatomy-desc">Un seul. Clair. Avec un verbe d'action. Aligné avec l'objectif du post : <strong>commenter, sauvegarder, envoyer un DM, cliquer sur le lien</strong>. Jamais deux CTA dans la même légende.</div>
-        <div class="anatomy-ex">✅ "Envoie-moi le mot STRATÉGIE en DM si tu veux qu'on en parle."</div>
+        <div class="anatomy-desc">Un seul. Clair. Avec un verbe d'action. <strong>Dis exactement quoi faire et ce qu'elle obtiendra.</strong> Jamais deux CTA dans la même légende.</div>
+        <div class="anatomy-example">✅ "Envoie-moi le mot STRATÉGIE en DM si tu veux qu'on en parle."</div>
       </div>
     </div>
   </div>
 
-  <div class="section-title">La longueur idéale</div>
+  <div class="section-title">La longueur idéale selon l'objectif</div>
 
-  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0;">
-    <div style="background: white; border-radius: 8px; padding: 20px; border-left: 4px solid var(--gold);">
-      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 10px;">Post de lien / Connexion</div>
-      <div style="font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 8px;">100–200 mots</div>
-      <div style="font-size: 13px; color: #666; line-height: 1.5;">Court, émotionnel, percutant. On ressent, on ne lit pas.</div>
+  <div class="length-table">
+    <div class="length-row">
+      <div class="length-type">Post de lien / Connexion</div>
+      <div class="length-range">100–200 mots</div>
+      <div class="length-desc">Court, émotionnel, percutant. On ressent, on ne lit pas.</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 20px; border-left: 4px solid var(--gold);">
-      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 10px;">Post de valeur / Éducatif</div>
-      <div style="font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 8px;">200–400 mots</div>
-      <div style="font-size: 13px; color: #666; line-height: 1.5;">Développé mais aéré. On explique, on prouve, on guide.</div>
+    <div class="length-row">
+      <div class="length-type">Post de valeur / Éducatif</div>
+      <div class="length-range">200–400 mots</div>
+      <div class="length-desc">Développé mais aéré. On explique, on prouve, on guide.</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 20px; border-left: 4px solid var(--gold);">
-      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 10px;">Post de vente / Offre</div>
-      <div style="font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 8px;">150–300 mots</div>
-      <div style="font-size: 13px; color: #666; line-height: 1.5;">Direct, clair sur le bénéfice, CTA fort à la fin.</div>
+    <div class="length-row">
+      <div class="length-type">Post de vente / Offre</div>
+      <div class="length-range">150–300 mots</div>
+      <div class="length-desc">Direct, clair sur le bénéfice, CTA fort à la fin.</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 20px; border-left: 4px solid var(--gold);">
-      <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 10px;">TikTok (spécifique)</div>
-      <div style="font-family: 'DM Mono', monospace; font-size: 20px; font-weight: 700; color: var(--black); margin-bottom: 8px;">50–150 mots</div>
-      <div style="font-size: 13px; color: #666; line-height: 1.5;">Ultra-court. La vidéo fait le travail — la légende complète.</div>
+    <div class="length-row">
+      <div class="length-type">TikTok (spécifique)</div>
+      <div class="length-range">50–150 mots</div>
+      <div class="length-desc">Ultra-court. La vidéo fait le travail — la légende complète.</div>
     </div>
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -992,132 +482,53 @@ body {
   <div class="fiche-bg-num">03</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 03 — Formules</div>
-    <div class="fiche-title">
-      Les <em>3 formules</em><br>
-      qui fonctionnent
-    </div>
-    <div class="fiche-citation">
-      « Tu n'as pas à réinventer la roue à chaque post. Maîtrise 3 formules — et tu peux écrire n'importe quoi. »
-    </div>
+    <div class="fiche-title">Les <em>3 formules</em><br>qui fonctionnent</div>
+    <div class="fiche-citation">« Tu n'as pas à réinventer la roue à chaque post. Maîtrise 3 formules — et tu peux écrire n'importe quoi. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
+  <div class="body-text">Ces formules ont fait leurs preuves en copywriting depuis des décennies. Adapte-les à ta voix — mais ne les abandonne jamais.</div>
 
-  <div class="body-text">Ces formules ont fait leurs preuves en copywriting depuis des décennies. Elles fonctionnent sur Instagram, TikTok, dans les emails, les pages de vente. Adapte-les à ta voix — mais ne les abandonne jamais.</div>
-
-  <!-- AIDA -->
-  <div class="formula-card">
-    <div class="formula-header">
-      <div>
-        <div class="formula-tag">Formule 01</div>
-        <div class="formula-name">AIDA</div>
-      </div>
-      <div style="font-size: 11px; color: rgba(250,250,245,0.4); font-family: 'DM Mono', monospace;">Post de vente</div>
+  <div class="formule-card">
+    <div class="formule-header">
+      <div class="formule-name">AIDA</div>
+      <div class="formule-tag">Post de vente</div>
     </div>
-    <div class="formula-body">
-      <div class="formula-step">
-        <div class="formula-step-letter">A</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Attention</div>
-          <div class="formula-step-desc">La première ligne arrête le scroll. Choc, question, affirmation provoc ou statistique surprenante.</div>
-        </div>
-      </div>
-      <div class="formula-step">
-        <div class="formula-step-letter">I</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Intérêt</div>
-          <div class="formula-step-desc">Tu développes le problème ou la situation que tu as décrite. Elle se reconnaît. Elle veut savoir la suite.</div>
-        </div>
-      </div>
-      <div class="formula-step">
-        <div class="formula-step-letter">D</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Désir</div>
-          <div class="formula-step-desc">Tu montres la transformation possible. La vie avec la solution. Ce qu'elle pourrait vivre si elle agit.</div>
-        </div>
-      </div>
-      <div class="formula-step">
-        <div class="formula-step-letter">A</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Action</div>
-          <div class="formula-step-desc">Un seul CTA. Clair. Avec un verbe d'action. Sans hésitation, sans option multiple.</div>
-        </div>
-      </div>
-      <div class="formula-insight">Idéale pour les posts de vente, de lancement d'offre, ou de présentation de résultats clients.</div>
+    <div class="formule-body">
+      <div class="formule-step"><div class="formule-letter">A</div><div class="formule-step-content"><div class="formule-step-title">Attention</div><div class="formule-step-desc">La première ligne arrête le scroll. Choc, question, affirmation provoc ou statistique surprenante.</div></div></div>
+      <div class="formule-step"><div class="formule-letter">I</div><div class="formule-step-content"><div class="formule-step-title">Intérêt</div><div class="formule-step-desc">Tu développes le problème. Elle se reconnaît. Elle veut savoir la suite.</div></div></div>
+      <div class="formule-step"><div class="formule-letter">D</div><div class="formule-step-content"><div class="formule-step-title">Désir</div><div class="formule-step-desc">Tu montres la transformation possible. La vie avec la solution.</div></div></div>
+      <div class="formule-step"><div class="formule-letter">A</div><div class="formule-step-content"><div class="formule-step-title">Action</div><div class="formule-step-desc">Un seul CTA. Clair. Avec un verbe d'action. Sans hésitation.</div></div></div>
+      <div class="formule-usage">Idéale pour les posts de vente, de lancement d'offre, ou de présentation de résultats clients.</div>
     </div>
   </div>
 
-  <!-- PAS -->
-  <div class="formula-card">
-    <div class="formula-header">
-      <div>
-        <div class="formula-tag">Formule 02</div>
-        <div class="formula-name">PAS — Problème · Agitation · Solution</div>
-      </div>
-      <div style="font-size: 11px; color: rgba(250,250,245,0.4); font-family: 'DM Mono', monospace;">Post de connexion</div>
+  <div class="formule-card">
+    <div class="formule-header">
+      <div class="formule-name">PAS</div>
+      <div class="formule-tag">Post de connexion</div>
     </div>
-    <div class="formula-body">
-      <div class="formula-step">
-        <div class="formula-step-letter">P</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Problème</div>
-          <div class="formula-step-desc">Tu nonces le problème que ton avatar vit. Sans détour. Elle doit se sentir vue dès la première phrase.</div>
-        </div>
-      </div>
-      <div class="formula-step">
-        <div class="formula-step-letter">A</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Agitation</div>
-          <div class="formula-step-desc">Tu explores les conséquences du problème. Ce que ça coûte de ne rien faire. L'urgence interne. Sans manipulation — avec lucidité.</div>
-        </div>
-      </div>
-      <div class="formula-step">
-        <div class="formula-step-letter">S</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Solution</div>
-          <div class="formula-step-desc">Tu proposes la sortie. Ta méthode, ton conseil, ton offre — selon l'objectif du post.</div>
-        </div>
-      </div>
-      <div class="formula-insight">Parfaite pour les posts de connexion, les stories de vente et les captions éducatives à fort impact émotionnel.</div>
+    <div class="formule-body">
+      <div class="formule-step"><div class="formule-letter">P</div><div class="formule-step-content"><div class="formule-step-title">Problème</div><div class="formule-step-desc">Tu nommes le problème que ton avatar vit. Sans détour. Elle doit se sentir vue dès la première phrase.</div></div></div>
+      <div class="formule-step"><div class="formule-letter">A</div><div class="formule-step-content"><div class="formule-step-title">Agitation</div><div class="formule-step-desc">Tu explores les conséquences. Ce que ça coûte de ne rien faire. L'urgence interne — sans manipulation.</div></div></div>
+      <div class="formule-step"><div class="formule-letter">S</div><div class="formule-step-content"><div class="formule-step-title">Solution</div><div class="formule-step-desc">Tu proposes la sortie. Ta méthode, ton conseil, ton offre — selon l'objectif du post.</div></div></div>
+      <div class="formule-usage">Parfaite pour les posts de connexion, les stories de vente et les captions éducatives à fort impact émotionnel.</div>
     </div>
   </div>
 
-  <!-- STR -->
-  <div class="formula-card">
-    <div class="formula-header">
-      <div>
-        <div class="formula-tag">Formule 03</div>
-        <div class="formula-name">STR — Situation · Tension · Résolution</div>
-      </div>
-      <div style="font-size: 11px; color: rgba(250,250,245,0.4); font-family: 'DM Mono', monospace;">Post storytelling</div>
+  <div class="formule-card">
+    <div class="formule-header">
+      <div class="formule-name">STR</div>
+      <div class="formule-tag">Post storytelling</div>
     </div>
-    <div class="formula-body">
-      <div class="formula-step">
-        <div class="formula-step-letter">S</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Situation</div>
-          <div class="formula-step-desc">Tu poses le contexte : où tu en étais, ce que tu vivais. Une scène concrète et visuelle. Pas de généralités.</div>
-        </div>
-      </div>
-      <div class="formula-step">
-        <div class="formula-step-letter">T</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Tension</div>
-          <div class="formula-step-desc">Le moment de doute, l'obstacle, l'échec, la révélation difficile. C'est là que le lecteur est accroché — il veut savoir comment tu t'en es sortie.</div>
-        </div>
-      </div>
-      <div class="formula-step">
-        <div class="formula-step-letter">R</div>
-        <div class="formula-step-content">
-          <div class="formula-step-title">Résolution</div>
-          <div class="formula-step-desc">La transformation, la leçon, la solution. Et le lien naturel avec ton offre si c'est un post de vente.</div>
-        </div>
-      </div>
-      <div class="formula-insight">Incontournable pour les posts "before/after", les témoignages, les parcours personnels. Le storytelling qui vend sans avoir l'air de vendre.</div>
+    <div class="formule-body">
+      <div class="formule-step"><div class="formule-letter">S</div><div class="formule-step-content"><div class="formule-step-title">Situation</div><div class="formule-step-desc">Tu poses le contexte : où tu en étais, ce que tu vivais. Une scène concrète et visuelle.</div></div></div>
+      <div class="formule-step"><div class="formule-letter">T</div><div class="formule-step-content"><div class="formule-step-title">Tension</div><div class="formule-step-desc">Le moment de doute, l'obstacle, la révélation difficile. C'est là que le lecteur est accroché.</div></div></div>
+      <div class="formule-step"><div class="formule-letter">R</div><div class="formule-step-content"><div class="formule-step-title">Résolution</div><div class="formule-step-desc">La transformation, la leçon, la solution — et le lien naturel avec ton offre si c'est un post de vente.</div></div></div>
+      <div class="formule-usage">Incontournable pour les posts "before/after", les témoignages, les parcours personnels. Le storytelling qui vend sans avoir l'air de vendre.</div>
     </div>
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -1127,86 +538,65 @@ body {
   <div class="fiche-bg-num">04</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 04 — Règles</div>
-    <div class="fiche-title">
-      Les règles d'or<br>
-      de la <em>rédaction</em>
-    </div>
-    <div class="fiche-citation">
-      « Écrire une bonne légende, c'est 10% inspiration et 90% structure. Apprends les règles — tu pourras les appliquer même quand tu n'as pas envie. »
-    </div>
+    <div class="fiche-title">Les règles d'or<br>de la <em>rédaction</em></div>
+    <div class="fiche-citation">« Écrire une bonne légende, c'est 10% inspiration et 90% structure. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="levier">
     <div class="levier-title">Règle 01 — Une idée par légende</div>
-    <div class="levier-text">La plus grande erreur : essayer de tout dire dans un seul post. <strong>Un post = une idée = un CTA.</strong> Si tu as envie de parler de plusieurs choses, c'est que tu as plusieurs posts devant toi. La dispersion tue l'impact.</div>
+    <div class="levier-text"><strong>Un post = une idée = un CTA.</strong> Si tu as envie de parler de plusieurs choses, c'est que tu as plusieurs posts devant toi. La dispersion tue l'impact.</div>
   </div>
-
   <div class="levier">
     <div class="levier-title">Règle 02 — La première ligne est sacrée</div>
-    <div class="levier-text">C'est la seule chose visible avant "voir plus". Si elle ne donne pas envie de cliquer, tout le reste est inutile. <strong>Écris-la en dernier</strong> — quand tu sais exactement ce que tu veux transmettre. Puis travaille-la jusqu'à ce qu'elle soit parfaite.</div>
+    <div class="levier-text">C'est la seule chose visible avant "voir plus". <strong>Écris-la en dernier</strong> — quand tu sais exactement ce que tu veux transmettre. Puis travaille-la jusqu'à ce qu'elle soit parfaite.</div>
   </div>
-
   <div class="levier">
     <div class="levier-title">Règle 03 — Aère. Aère. Aère.</div>
-    <div class="levier-text">Sur mobile, un paragraphe de 5 lignes fait fuir. Maximum <strong>2-3 phrases par bloc</strong>, puis un saut de ligne. L'espace blanc n'est pas du vide — c'est de la lisibilité. Plus c'est aéré, plus on lit.</div>
+    <div class="levier-text">Maximum <strong>2-3 phrases par bloc</strong>, puis un saut de ligne. L'espace blanc n'est pas du vide — c'est de la lisibilité.</div>
   </div>
-
   <div class="levier">
     <div class="levier-title">Règle 04 — Parle comme une vraie personne</div>
-    <div class="levier-text">Pas de jargon. Pas de formules corporate. Pas de "dans cet article, nous allons voir". <strong>Parle comme tu parlerais à une amie</strong> — directement, simplement, avec ta personnalité. Le registre familier convertit mieux que le registre formel sur les réseaux.</div>
+    <div class="levier-text">Pas de jargon. Pas de formules corporate. <strong>Parle comme tu parlerais à une amie</strong> — directement, simplement, avec ta personnalité.</div>
   </div>
-
   <div class="levier">
     <div class="levier-title">Règle 05 — Nomme les douleurs, pas les solutions</div>
-    <div class="levier-text">Les gens ne cherchent pas une formation — ils cherchent à se débarrasser d'un problème. <strong>Commence par la douleur</strong> avant de parler de ta solution. Celle qui se reconnaît dans le problème sera infiniment plus réceptive à ta réponse.</div>
+    <div class="levier-text"><strong>Commence par la douleur</strong> avant de parler de ta solution. Celle qui se reconnaît dans le problème sera infiniment plus réceptive à ta réponse.</div>
   </div>
-
   <div class="levier">
     <div class="levier-title">Règle 06 — Ferme avec un CTA à chaque fois</div>
-    <div class="levier-text">Même sur un post de connexion. Même sur un post éducatif. Il y a toujours une prochaine étape logique : sauvegarder, commenter, envoyer un DM, partager. <strong>Ne laisse jamais ta lectrice dans le vide</strong> — guide-la vers la suite.</div>
+    <div class="levier-text">Même sur un post de connexion. Il y a toujours une prochaine étape logique. <strong>Ne laisse jamais ta lectrice dans le vide.</strong></div>
   </div>
 
-  <div class="callout-gold">
-    La règle des règles : relis ta légende à voix haute avant de publier.<br><br>
+  <div class="callout">
+    Relis ta légende à voix haute avant de publier.<br><br>
     Si tu butes, si ça sonne faux, si tu t'ennuies — c'est à refaire. Ta lectrice ressentira exactement ce que tu ressens en la lisant.
   </div>
 
   <div class="section-title">Les formules de CTA qui fonctionnent</div>
-
-  <div style="display: grid; grid-template-columns: 1fr; gap: 10px; margin: 16px 0;">
-    <div style="background: white; border-radius: 8px; padding: 16px 20px; display: flex; gap: 14px; align-items: center; border-left: 3px solid var(--gold);">
-      <div style="font-size: 18px;">💬</div>
-      <div>
-        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px;">Pour les commentaires</div>
-        <div style="font-size: 13px; color: #555; font-style: italic;">"Dis-moi en commentaire : [question directe liée au post]"</div>
-      </div>
+  <div class="cta-grid">
+    <div class="cta-card">
+      <div class="cta-icon">💬</div>
+      <div class="cta-label">Pour les commentaires</div>
+      <div class="cta-text">"Dis-moi en commentaire : [question directe liée au post]"</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 16px 20px; display: flex; gap: 14px; align-items: center; border-left: 3px solid var(--gold);">
-      <div style="font-size: 18px;">📩</div>
-      <div>
-        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px;">Pour les DM</div>
-        <div style="font-size: 13px; color: #555; font-style: italic;">"Envoie-moi le mot [MOT-CLÉ] en DM et je t'envoie [la ressource / le lien / les détails]"</div>
-      </div>
+    <div class="cta-card">
+      <div class="cta-icon">📩</div>
+      <div class="cta-label">Pour les DM</div>
+      <div class="cta-text">"Envoie-moi le mot [MOT-CLÉ] en DM et je t'envoie [la ressource]"</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 16px 20px; display: flex; gap: 14px; align-items: center; border-left: 3px solid var(--gold);">
-      <div style="font-size: 18px;">🔖</div>
-      <div>
-        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px;">Pour les sauvegardes</div>
-        <div style="font-size: 13px; color: #555; font-style: italic;">"Sauvegarde ce post — tu vas en avoir besoin quand [situation concrète]"</div>
-      </div>
+    <div class="cta-card">
+      <div class="cta-icon">🔖</div>
+      <div class="cta-label">Pour les sauvegardes</div>
+      <div class="cta-text">"Sauvegarde ce post — tu vas en avoir besoin quand [situation]"</div>
     </div>
-    <div style="background: white; border-radius: 8px; padding: 16px 20px; display: flex; gap: 14px; align-items: center; border-left: 3px solid var(--gold);">
-      <div style="font-size: 18px;">🔗</div>
-      <div>
-        <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); margin-bottom: 4px;">Pour le lien bio</div>
-        <div style="font-size: 13px; color: #555; font-style: italic;">"Le lien est en bio — [dis exactement ce qu'elle trouvera, pas juste 'lien en bio']"</div>
-      </div>
+    <div class="cta-card">
+      <div class="cta-icon">🔗</div>
+      <div class="cta-label">Pour le lien bio</div>
+      <div class="cta-text">"Le lien est en bio — [dis exactement ce qu'elle trouvera]"</div>
     </div>
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -1216,18 +606,12 @@ body {
   <div class="fiche-bg-num">05</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 05 — Voix</div>
-    <div class="fiche-title">
-      Ton, style<br>
-      & <em>voix unique</em>
-    </div>
-    <div class="fiche-citation">
-      « Les gens ne suivent pas un contenu. Ils suivent une voix. Trouve la tienne — et ne la change plus. »
-    </div>
+    <div class="fiche-title">Ton, style<br>&amp; <em>voix unique</em></div>
+    <div class="fiche-citation">« Les gens ne suivent pas un contenu. Ils suivent une voix. Trouve la tienne — et ne la change plus. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="body-text">La technique s'apprend. La voix, elle, se construit. Et c'est elle qui crée la fidélité — parce qu'une voix unique ne se copie pas et ne se remplace pas.</div>
 
   <div class="section-title">Les 4 composantes de ta voix</div>
@@ -1236,41 +620,37 @@ body {
     <div class="step-num">V.01</div>
     <div class="step-content">
       <div class="step-title-s">Le niveau de langage</div>
-      <div class="step-body">Tu tutoies ou tu vouvoies ? Tu utilises de l'argot, du familier ou du soutenu ? <strong>Choisis et reste cohérente.</strong> Le tutoiement direct crée une intimité immédiate — il est largement dominant chez les créatrices qui vendent bien en ligne.</div>
+      <div class="step-body">Tu tutoies ou tu vouvoies ? Tu utilises de l'argot ou du soutenu ? <strong>Choisis et reste cohérente.</strong> Le tutoiement direct crée une intimité immédiate.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">V.02</div>
     <div class="step-content">
       <div class="step-title-s">Le degré de franchise</div>
-      <div class="step-body">Certaines créatrices sont cash et directes. D'autres sont douces et bienveillantes. <em>Les deux fonctionnent</em> — à condition d'être authentiques. Ce qui ne fonctionne jamais : être cash quand tu n'es pas comme ça dans la vraie vie.</div>
+      <div class="step-body">Certaines créatrices sont cash et directes. D'autres sont douces et bienveillantes. <em>Les deux fonctionnent</em> — à condition d'être authentiques.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">V.03</div>
     <div class="step-content">
       <div class="step-title-s">Les expressions récurrentes</div>
-      <div class="step-body">Les petites phrases qui reviennent. Les tournures qui te ressemblent. <strong>Ce sont tes signatures.</strong> Quand tes lecteurs les reconnaissent, c'est que tu as une voix. Ex : "Voilà la vérité que personne ne dit", "Et là, tout a basculé"…</div>
+      <div class="step-body">Les petites phrases qui reviennent. Les tournures qui te ressemblent. <strong>Ce sont tes signatures.</strong> Quand tes lecteurs les reconnaissent, c'est que tu as une voix.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">V.04</div>
     <div class="step-content">
       <div class="step-title-s">La place du personnel</div>
-      <div class="step-body">Tu parles de ta vie, de tes enfants, de tes galères ? Ou tu restes entièrement dans la valeur sans te montrer ? <strong>Aucune des deux n'est meilleure</strong> — mais la cohérence est obligatoire. Mélanger les deux sans logique crée de la confusion.</div>
+      <div class="step-body">Tu parles de ta vie, de tes galères ? Ou tu restes entièrement dans la valeur ? <strong>Aucune des deux n'est meilleure</strong> — mais la cohérence est obligatoire.</div>
     </div>
   </div>
 
-  <div class="callout">
-    Pour trouver ta voix : relis tes 10 derniers messages WhatsApp à une amie proche.<br><br>
-    <em>C'est là que tu écris naturellement. C'est là que ta vraie voix est. Reproduis ça dans tes légendes.</em>
+  <div class="tip-box">
+    <div class="tip-label">💡 Pour trouver ta voix</div>
+    <div class="tip-text">Relis tes 10 derniers messages WhatsApp à une amie proche. C'est là que tu écris naturellement. C'est là que ta vraie voix est. Reproduis ça dans tes légendes.</div>
   </div>
 
   <div class="section-title">Avant / Après — même message, deux voix</div>
-
   <div class="before-after">
     <div class="before-card">
       <div class="ba-label">✗ Voix générique</div>
@@ -1282,11 +662,9 @@ body {
     </div>
   </div>
 
-  <div class="tip-box">
-    <div class="tip-label">💡 Le test de l'imposteur</div>
-    <div class="tip-text">Lis ta légende et demande-toi : "Est-ce que n'importe quelle autre créatrice de ma niche pourrait avoir écrit ça ?" Si oui — réécris. Ta légende doit porter ton empreinte. Rien que la tienne.</div>
+  <div class="callout-gold">
+    Le test de l'imposteur : lis ta légende et demande-toi "est-ce que n'importe quelle autre créatrice de ma niche pourrait avoir écrit ça ?" Si oui — réécris. Ta légende doit porter ton empreinte. Rien que la tienne.
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -1296,87 +674,72 @@ body {
   <div class="fiche-bg-num">06</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 06 — Erreurs</div>
-    <div class="fiche-title">
-      Les <em>8 erreurs</em><br>
-      qui tuent<br>
-      <span class="outline-w">l'engagement</span>
-    </div>
-    <div class="fiche-citation">
-      « La plupart des légendes ne fonctionnent pas pour la même raison : elles parlent de l'offre avant de parler de la personne. »
-    </div>
+    <div class="fiche-title">Les <em>8 erreurs</em><br>qui tuent<br><span class="outline-w">l'engagement</span></div>
+    <div class="fiche-citation">« La plupart des légendes ne fonctionnent pas pour la même raison : elles parlent de l'offre avant de parler de la personne. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="step-block">
     <div class="step-num">E.01</div>
     <div class="step-content">
       <div class="step-title-s">Commencer par "Dans cette vidéo…"</div>
-      <div class="step-body">C'est la mort du scroll. <em>"Dans cette vidéo je vous explique comment…"</em> ne donne aucune raison de lire la suite. La première ligne doit créer une tension, une curiosité ou une émotion — pas résumer la vidéo.</div>
+      <div class="step-body">C'est la mort du scroll. La première ligne doit créer une tension, une curiosité ou une émotion — pas résumer la vidéo.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">E.02</div>
     <div class="step-content">
       <div class="step-title-s">Écrire un pavé sans aération</div>
-      <div class="step-body">Un bloc de texte sans respiration fait fuir sur mobile. <strong>Règle absolue : jamais plus de 3 phrases d'affilée sans saut de ligne.</strong> L'œil a besoin de pauses pour continuer à lire.</div>
+      <div class="step-body"><strong>Règle absolue : jamais plus de 3 phrases d'affilée sans saut de ligne.</strong> L'œil a besoin de pauses pour continuer à lire.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">E.03</div>
     <div class="step-content">
       <div class="step-title-s">Finir sans CTA ou avec un CTA flou</div>
-      <div class="step-body">"Lien en bio" seul ne suffit pas. "N'hésitez pas à me contacter" est trop mou. <strong>Dis exactement quoi faire, pourquoi, et ce qu'elle obtiendra.</strong> La clarté est une invitation — le flou est une porte fermée.</div>
+      <div class="step-body">"Lien en bio" seul ne suffit pas. <strong>Dis exactement quoi faire, pourquoi, et ce qu'elle obtiendra.</strong></div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">E.04</div>
     <div class="step-content">
       <div class="step-title-s">Trop d'emojis sans logique</div>
-      <div class="step-body">Les emojis doivent servir de <strong>repères visuels</strong>, pas de décoration. Un emoji tous les 2-3 blocs maximum. Une légende avec un emoji par ligne ressemble à un spam — et réduit instantanément ta crédibilité perçue.</div>
+      <div class="step-body">Les emojis doivent servir de <strong>repères visuels</strong>, pas de décoration. Un emoji tous les 2-3 blocs maximum.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">E.05</div>
     <div class="step-content">
       <div class="step-title-s">Parler de toi avant de parler d'elle</div>
-      <div class="step-body">Commencer par "Moi j'ai fait ça et j'ai obtenu ce résultat incroyable" avant d'avoir créé du lien avec ton audience repousse. <em>Elle doit d'abord se sentir comprise</em> — avant d'entendre ton histoire ou ton offre.</div>
+      <div class="step-body"><em>Elle doit d'abord se sentir comprise</em> — avant d'entendre ton histoire ou ton offre.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">E.06</div>
     <div class="step-content">
       <div class="step-title-s">Répéter exactement ce qui est dans la vidéo</div>
-      <div class="step-body">La légende n'est pas le script de ta vidéo. <strong>Elle complète, approfondit ou crée une tension</strong> par rapport à ce qui est montré. Si la légende dit exactement la même chose que la vidéo, personne ne la lit.</div>
+      <div class="step-body">La légende n'est pas le script de ta vidéo. <strong>Elle complète, approfondit ou crée une tension</strong> par rapport à ce qui est montré.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">E.07</div>
     <div class="step-content">
       <div class="step-title-s">Changer de ton d'un post à l'autre</div>
-      <div class="step-body">Un post cash et direct, le suivant ultra-formel, le prochain comme une amie — cette incohérence déroute ton audience. <strong>Elle ne sait plus qui tu es.</strong> Définis ton ton. Garde-le. Partout. Toujours.</div>
+      <div class="step-body">Cette incohérence déroute ton audience. <strong>Définis ton ton. Garde-le. Partout. Toujours.</strong></div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">E.08</div>
     <div class="step-content">
       <div class="step-title-s">Ne jamais relire avant de publier</div>
-      <div class="step-body">Une faute de frappe dans la première ligne. Un mot manquant. Une phrase qui ne veut rien dire. <em>Ça arrive quand on publie à la va-vite.</em> Relis à voix haute — tu entendras ce que l'œil rate à la lecture silencieuse.</div>
+      <div class="step-body"><em>Relis à voix haute</em> — tu entendras ce que l'œil rate à la lecture silencieuse.</div>
     </div>
   </div>
 
-  <div class="callout-gold" style="margin-top: 32px;">
+  <div class="callout-gold" style="margin-top:32px">
     La règle ultime avant chaque publication : demande-toi si cette légende donne ENVIE de répondre, de sauvegarder, ou de cliquer. Si la réponse est non — retravaille-la. Toujours.
   </div>
-
 </div>
 
 <div class="page-break"></div>
@@ -1386,82 +749,28 @@ body {
   <div class="fiche-bg-num">07</div>
   <div class="fiche-header-inner">
     <div class="fiche-num">Fiche 07 — Checklist</div>
-    <div class="fiche-title">
-      La checklist<br>
-      <em>finale</em>
-    </div>
-    <div class="fiche-citation">
-      « Avant chaque publication, cette checklist. Sans exception. »
-    </div>
+    <div class="fiche-title">La checklist<br><em>finale</em></div>
+    <div class="fiche-citation">« Avant chaque publication, cette checklist. Sans exception. »</div>
   </div>
 </div>
 
 <div class="fiche-content">
-
   <div class="body-text">Coche chaque point avant d'appuyer sur "Publier". Un seul point manquant peut faire la différence entre un post qui performe et un post qui disparaît.</div>
 
-  <div class="checklist" style="margin-top: 24px;">
+  <div class="checklist" style="margin-top:24px">
     <div class="checklist-header">✅ Checklist Légende — Avant chaque publication</div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>La première ligne est un crochet</strong> — elle donne envie de cliquer sur "voir plus" sans révéler tout le contenu</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Il n'y a qu'une seule idée principale</strong> dans toute la légende</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>La légende est aérée</strong> — maximum 2-3 phrases par bloc, séparées par des sauts de ligne</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Je parle à mon avatar</strong> avant de parler de moi ou de mon offre</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>J'utilise une formule structurée</strong> — AIDA, PAS ou STR selon l'objectif du post</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Mon ton est cohérent</strong> avec mes autres publications et avec qui je suis vraiment</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Il y a un seul CTA</strong>, clair, avec un verbe d'action, placé à la fin</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Les emojis sont fonctionnels</strong> — maximum 1 tous les 2-3 blocs, en cohérence avec l'univers de la marque</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>La longueur est adaptée</strong> au type de post (connexion / valeur / vente) et à la plateforme</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>J'ai relu à voix haute</strong> — aucune faute, aucune phrase qui sonne faux</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>N'importe quelle autre créatrice ne pourrait pas avoir écrit cette légende</strong> — elle porte mon empreinte</div>
-    </div>
-
-    <div class="check-item">
-      <div class="check-box"></div>
-      <div class="check-text"><strong>Ce post a un objectif clair</strong> : créer du lien, construire la crédibilité, ou déclencher une vente</div>
-    </div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>La première ligne est un crochet</strong> — elle donne envie de cliquer sur "voir plus" sans révéler tout le contenu</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Il n'y a qu'une seule idée principale</strong> dans toute la légende</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>La légende est aérée</strong> — maximum 2-3 phrases par bloc, séparées par des sauts de ligne</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Je parle à mon avatar</strong> avant de parler de moi ou de mon offre</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>J'utilise une formule structurée</strong> — AIDA, PAS ou STR selon l'objectif du post</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Mon ton est cohérent</strong> avec mes autres publications et avec qui je suis vraiment</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Il y a un seul CTA</strong>, clair, avec un verbe d'action, placé à la fin</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Les emojis sont fonctionnels</strong> — maximum 1 tous les 2-3 blocs</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>La longueur est adaptée</strong> au type de post et à la plateforme</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>J'ai relu à voix haute</strong> — aucune faute, aucune phrase qui sonne faux</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Cette légende porte mon empreinte</strong> — une autre créatrice ne pourrait pas l'avoir écrite</div></div>
+    <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Ce post a un objectif clair</strong> : créer du lien, construire la crédibilité, ou déclencher une vente</div></div>
   </div>
 
   <div class="section-title">Le processus d'amélioration continue</div>
@@ -1470,46 +779,50 @@ body {
     <div class="step-num">01</div>
     <div class="step-content">
       <div class="step-title-s">Analyse tes 5 meilleurs posts</div>
-      <div class="step-body">Quelles légendes ont généré le plus de commentaires ? De sauvegardes ? De DMs ? Note les points communs — longueur, structure, ton, sujet. <strong>C'est là que se cache ta formule personnelle.</strong></div>
+      <div class="step-body">Quelles légendes ont généré le plus de commentaires ? De sauvegardes ? Note les points communs. <strong>C'est là que se cache ta formule personnelle.</strong></div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">02</div>
     <div class="step-content">
       <div class="step-title-s">Crée ta bibliothèque de premières lignes</div>
-      <div class="step-body">Garde un fichier (Notes, Notion, Google Doc) avec toutes tes premières lignes qui ont fonctionné. <em>Ce sont tes templates personnels.</em> Réutilise-les, adapte-les, fais-les évoluer.</div>
+      <div class="step-body">Garde un fichier avec toutes tes premières lignes qui ont fonctionné. <em>Ce sont tes templates personnels.</em> Réutilise-les, adapte-les.</div>
     </div>
   </div>
-
   <div class="step-block">
     <div class="step-num">03</div>
     <div class="step-content">
       <div class="step-title-s">Batch-écris tes légendes</div>
-      <div class="step-body">Écrire une légende à la fois, au moment de publier, c'est épuisant et souvent bâclé. <strong>Réserve 2h par semaine pour écrire toutes tes légendes d'un coup.</strong> L'élan d'écriture produit de bien meilleurs résultats que l'urgence.</div>
+      <div class="step-body"><strong>Réserve 2h par semaine pour écrire toutes tes légendes d'un coup.</strong> L'élan d'écriture produit de bien meilleurs résultats que l'urgence.</div>
     </div>
   </div>
 
-  <div style="margin-top: 40px; padding: 24px; border: 1px solid rgba(201,168,76,0.3); border-radius: 8px; background: rgba(201,168,76,0.05);">
-    <div style="font-family: 'Playfair Display', serif; font-style: italic; font-size: 17px; color: var(--black); line-height: 1.7;">
+  <div style="margin-top:40px;padding:24px;border:1px solid rgba(201,168,76,0.3);border-radius:8px;background:rgba(201,168,76,0.05)">
+    <div style="font-family:'Playfair Display',serif;font-style:italic;font-size:17px;color:var(--black);line-height:1.7">
       « Une légende bien écrite ne ressemble pas à de la vente. Elle ressemble à une conversation entre deux personnes qui se comprennent. C'est là que tout commence. »
     </div>
   </div>
-
 </div>
 
 <!-- ===== CLOSING ===== -->
 <div class="closing-page">
   <div class="closing-eyebrow">Tu as maintenant toutes les clés</div>
   <div class="closing-title">
-    Maintenant,<br>
-    va écrire<br>
-    <em>ta légende.</em>
+    Maintenant,<br>va écrire<br><em>ta légende.</em>
   </div>
   <div class="closing-text">
     La structure. Les formules. Les règles d'or. Ta voix. Les erreurs à éviter. La checklist complète.<br><br>
     Tout est là. La seule chose qui reste — c'est toi qui ouvres un document vierge et qui commences à écrire.
   </div>
+
+  <div class="closing-cta-wrap">
+    <div class="closing-cta-label">Prochaine étape</div>
+    <a href="https://kcoaching02.github.io/BAO_HOOK/" class="closing-cta-btn" target="_blank">
+      Maîtriser tes hooks
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+
   <div class="closing-brand">Brille & Vibre</div>
 </div>
 
